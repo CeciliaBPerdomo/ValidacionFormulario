@@ -1,35 +1,179 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="./assets/img/4geeks.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
 
-    <!-- Fontawesome is our recomended library for icons -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <!-- Write your HTML code here, you can delete everything withing the body tags -->
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./assets/img/rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="./assets/img/4geeks.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment form</title>
+
+  <!-- Fontawesome is our recomended library for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- Write your HTML code here, you can delete everything withing the body tags -->
+  <div class="container mt-3">
+    <div class="card text-start">
+      <div class="card-header">
+        <h3>Payment form example</h3>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-danger" role="alert">
+          ✋ Some fields are missing!
+        </div>
+        <form>
+          <div class="row">
+            <!-- Card number -->
+            <div class="col-5">
+              <label for="card" class="form-label fw-bold" id="card">Card #</label>
+              <input type="number" id="card" class="form-control" aria-describedby="cardHelpBlock"
+                placeholder="0000 0000 0000 0000">
+              <div id="cardHelpBlock" class="form-text mx-1 text-danger">
+                ❌ Missing card number
+              </div>
+            </div>
+
+            <!-- CVC -->
+            <div class="col-3">
+              <label for="cvc" class="form-label fw-bold" id="cvc">CVC #</label>
+              <input type="number" id="cvc" class="form-control" aria-describedby="cvcHelpBlock" placeholder="000">
+              <div id="cvcHelpBlock" class="form-text mx-1 text-danger">
+                ❌ Missing CVC number
+              </div>
+            </div>
+
+            <!-- Amount -->
+            <div class="col-4">
+              <label for="cvc" class="form-label fw-bold" id="cvc">Amount</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">$</span>
+                <input type="number" class="form-control" placeholder="Amount" aria-label="Amount"
+                  aria-describedby="basic-addon1">
+              </div>
+              <div id="cvcHelpBlock" class="form-text mx-1 text-danger">
+                ❌ Missing amount
+              </div>
+            </div>
+
+            <!-- First name -->
+            <div class="col-6 mt-4">
+              <label for="name" class="form-label fw-bold" id="name">First name</label>
+              <input type="text" id="name" class="form-control" aria-describedby="nameHelpBlock"
+                placeholder="First name">
+              <div id="nameHelpBlock" class="form-text mx-1 text-danger">
+                ❌ Missing first name
+              </div>
+            </div>
+
+            <!-- Last name -->
+            <div class="col-6 mt-4">
+              <label for="lastName" class="form-label fw-bold" id="lastName">Last name</label>
+              <input type="text" id="lastName" class="form-control" aria-describedby="lastNameHelpBlock"
+                placeholder="Last name">
+              <div id="lastNameHelpBlock" class="form-text mx-1 text-danger">
+                ❌ Missing last name
+              </div>
+            </div>
+
+            <!-- City -->
+            <div class="col-6 mt-4">
+              <label for="city" class="form-label fw-bold" id="city">City</label>
+              <input type="text" id="city" class="form-control" aria-describedby="cityHelpBlock" placeholder="City">
+              <div id="cityHelpBlock" class="form-text mx-1 text-danger">
+                ❌ Missing city
+              </div>
+            </div>
+
+            <!-- State -->
+            <div class="col-3 mt-4">
+              <label for="state" class="form-label fw-bold" id="state">State</label>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Pick a state</option>
+                <option value="1">Colonia</option>
+                <option value="2">Montevideo</option>
+                <option value="3">Soriano</option>
+              </select>
+              <div id="stateHelpBlock" class="form-text mx-1 text-danger">
+                ❌ Missing state
+              </div>
+            </div>
+
+            <!-- Postal code -->
+            <div class="col-3 mt-4">
+              <label for="postalCode" class="form-label fw-bold" id="postalCode">Postal Code</label>
+              <input type="text" id="postalCode" class="form-control" aria-describedby="postalCodeHelpBlock"
+                placeholder="Postal code">
+              <div id="postalCodeHelpBlock" class="form-text mx-1 text-danger">
+                ❌ Missing postal code
+              </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="col-6 mt-4">
+              <label for="weAceept" class="form-label fw-bold" id="weAceept">We accept</label>
+              <div class="bg-secondary p-3 rounded-4 opacity-75" style="width: 280px;">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="option1">
+                  <label class="form-check-label" for="inlineRadio1"><i class="fa-brands fa-cc-visa"></i></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                  <label class="form-check-label" for="inlineRadio2"><i class="fa-brands fa-cc-mastercard"></i></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="option1">
+                  <label class="form-check-label" for="inlineRadio1"><i class="fa-brands fa-cc-diners-club"></i></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                  <label class="form-check-label" for="inlineRadio2"><i class="fa-brands fa-cc-amex"></i></label>
+                </div>
+              </div>
+              <div id="weAceeptHelpBlock" class="form-text mx-1 text-danger">
+                ❌ Missing card
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="col-6 mt-4">
+              <label for="postalCode" class="form-label fw-bold" id="postalCode">Message</label>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                  style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Comments</label>
+              </div>
+              <small>Add any notes here</small>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer text-body-secondary d-flex justify-content-end">
+        <button type="button" class="btn btn-secondary mx-2">Cancel</button>
+        <button type="button" class="btn btn-primary">Send</button>
       </div>
     </div>
+  </div>
 
-    <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
-    <script type="module" src="/app.js"></script>
-  </body>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
+    integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
+    crossorigin="anonymous"></script>
+  <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
+  <script type="module" src="/app.js"></script>
+</body>
+
 </html>
