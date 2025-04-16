@@ -24,8 +24,8 @@ function inicial() {
   document.getElementById("weAceeptHelpBlock").style.display = "none"
 }
 
-function mensajesError(cartel, estado) {
-  document.getElementById("alerta").style.display = "block"
+function mensajesError(cartel, estado, estadoAlerta) {
+  document.getElementById("alerta").style.display = estadoAlerta
   document.getElementById(cartel).style.display = estado
 }
 
@@ -34,11 +34,11 @@ function validarFormulario() {
   // Card
   let tarjeta = document.getElementById("card").value
   if (tarjeta == "" || tarjeta.length < 16) {
-    mensajesError("cardHelpBlock", "block")
+    mensajesError("cardHelpBlock", "block", "block")
     document.getElementById("card").style.border = '2px solid red'
     document.getElementById("card").style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
   } else {
-    mensajesError("cardHelpBlock", "none")
+    mensajesError("cardHelpBlock", "none", "none")
     document.getElementById("card").style.border = '2px solid green'
     document.getElementById("card").style.backgroundColor = 'white';
   }
@@ -46,11 +46,11 @@ function validarFormulario() {
   // CVC
   let cvcNumber = document.getElementById("cvc").value
   if (cvcNumber == "" || cvcNumber.length < 3) {
-    mensajesError("cvcHelpBlock", "block")
+    mensajesError("cvcHelpBlock", "block", "block")
     document.getElementById("cvc").style.border = '2px solid red'
     document.getElementById("cvc").style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
   } else {
-    mensajesError("cvcHelpBlock", "none")
+    mensajesError("cvcHelpBlock", "none", "none")
     document.getElementById("cvc").style.border = '2px solid green'
     document.getElementById("cvc").style.backgroundColor = 'white';
   }
@@ -59,11 +59,11 @@ function validarFormulario() {
   // Amount
   let amountPrice = document.getElementById("amount").value
   if (amountPrice == "") {
-    mensajesError("amountHelpBlock", "block")
+    mensajesError("amountHelpBlock", "block", "block")
     document.getElementById("amount").style.border = '2px solid red'
     document.getElementById("amount").style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
   } else {
-    mensajesError("amountHelpBlock", "none")
+    mensajesError("amountHelpBlock", "none", "none")
     document.getElementById("amount").style.border = '2px solid green'
     document.getElementById("amount").style.backgroundColor = 'white';
   }
@@ -72,11 +72,11 @@ function validarFormulario() {
   // First name
   let firstName = document.getElementById("name").value
   if (firstName == "") {
-    mensajesError("nameHelpBlock", "block")
+    mensajesError("nameHelpBlock", "block", "block")
     document.getElementById("name").style.border = '2px solid red'
     document.getElementById("name").style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
   } else {
-    mensajesError("nameHelpBlock", "none")
+    mensajesError("nameHelpBlock", "none", "none")
     document.getElementById("name").style.border = '2px solid green'
     document.getElementById("name").style.backgroundColor = 'white';
   }
@@ -84,11 +84,11 @@ function validarFormulario() {
   // Last name
   let last_Name = document.getElementById("lastName").value
   if (last_Name == "") {
-    mensajesError("lastNameHelpBlock", "block")
+    mensajesError("lastNameHelpBlock", "block", "block")
     document.getElementById("lastName").style.border = '2px solid red'
     document.getElementById("lastName").style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
   } else {
-    mensajesError("lastNameHelpBlock", "none")
+    mensajesError("lastNameHelpBlock", "none", "none")
     document.getElementById("lastName").style.border = '2px solid green'
     document.getElementById("lastName").style.backgroundColor = 'white';
   }
@@ -96,11 +96,11 @@ function validarFormulario() {
   // City
   let cityInput = document.getElementById("city").value
   if (cityInput == "") {
-    mensajesError("cityHelpBlock", "block")
+    mensajesError("cityHelpBlock", "block", "block")
     document.getElementById("city").style.border = '2px solid red'
     document.getElementById("city").style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
   } else {
-    mensajesError("cityHelpBlock", "none")
+    mensajesError("cityHelpBlock", "none", "none")
     document.getElementById("city").style.border = '2px solid green'
     document.getElementById("city").style.backgroundColor = 'white';
   }
@@ -109,11 +109,11 @@ function validarFormulario() {
   // State
   let stateInput = document.getElementById("state").value
   if (stateInput == "Pick a state") {
-    mensajesError("stateHelpBlock", "block")
+    mensajesError("stateHelpBlock", "block", "block")
     document.getElementById("state").style.border = '2px solid red'
     document.getElementById("state").style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
   } else {
-    mensajesError("stateHelpBlock", "none")
+    mensajesError("stateHelpBlock", "none", "none")
     document.getElementById("state").style.border = '2px solid green'
     document.getElementById("state").style.backgroundColor = 'white';
   }
@@ -121,11 +121,11 @@ function validarFormulario() {
   // Postal code
   let postalInput = document.getElementById("postalCode").value
   if (postalInput == "") {
-    mensajesError("postalCodeHelpBlock", "block")
+    mensajesError("postalCodeHelpBlock", "block", "block")
     document.getElementById("postalCode").style.border = '2px solid red'
     document.getElementById("postalCode").style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
   } else {
-    mensajesError("postalCodeHelpBlock", "none")
+    mensajesError("postalCodeHelpBlock", "none", "none")
     document.getElementById("postalCode").style.border = '2px solid green'
     document.getElementById("postalCode").style.backgroundColor = 'white';
   }
@@ -135,10 +135,10 @@ function validarFormulario() {
     'input[name="inlineRadioOptions"]:checked'
   );
   if (!elementoActivo) {
-    mensajesError("weAceeptHelpBlock", "block")
+    mensajesError("weAceeptHelpBlock", "block", "block")
     document.getElementById("weAceept").style.border = '2px solid red'
   } else {
-    mensajesError("weAceeptHelpBlock", "none")
+    mensajesError("weAceeptHelpBlock", "none", "none")
     document.getElementById("weAceept").style.border = '2px solid green'
   }
 }
